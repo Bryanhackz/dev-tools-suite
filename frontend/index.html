@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{DESCRIPTION}}">
+    <link rel="stylesheet" href="/css/tokens.css">
+    <link rel="stylesheet" href="/css/base.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <script type="module" src="/js/main.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <nav class="navbar">
+        <div class="navbar-brand">DevTools.</div>
+        <div class="navbar-links">
+            <a href="/legal">Legal & Privacy</a>
+            <a href="https://github.com/Bryanhackz" target="_blank" rel="noopener">GitHub</a>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <h1>Privacy-first developer utilities.</h1>
+        <p>A suite of essential tools that run entirely in your browser. No data leaves your device.</p>
+    </header>
+
+    <main id="main-content" class="container">
+        <div class="tool-grid">
+            <!-- Password Generator -->
+            <section class="tool-card" aria-labelledby="pass-title">
+                <h2 id="pass-title">Password Generator</h2>
+                <label for="pass-length">Length</label>
+                <input type="number" id="pass-length" value="16" min="8" max="64">
+                <button id="btn-gen-pass" style="margin-bottom: 1rem;">Generate</button>
+                <div class="output-wrapper">
+                    <div id="pass-result" class="result-box" role="status" style="display: flex; align-items: center;"></div>
+                    <button class="btn-icon copy-btn" data-target="pass-result" aria-label="Copy password">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- JSON Formatter -->
+            <section class="tool-card" aria-labelledby="json-title">
+                <h2 id="json-title">JSON Formatter</h2>
+                <label for="json-input">Raw JSON</label>
+                <textarea id="json-input" rows="5" placeholder='{"key": "value"}'></textarea>
+                <div class="btn-group">
+                    <button id="btn-format-json">Format</button>
+                    <button id="btn-minify-json" class="btn-secondary">Minify</button>
+                </div>
+                <p id="json-error" class="error-text" aria-live="polite"></p>
+                <div class="output-wrapper">
+                    <textarea id="json-output" rows="5" readonly></textarea>
+                    <button class="btn-icon copy-btn" data-target="json-output" aria-label="Copy JSON">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- Base64 -->
+            <section class="tool-card" aria-labelledby="b64-title">
+                <h2 id="b64-title">Base64 Codec</h2>
+                <label for="b64-input">Input</label>
+                <textarea id="b64-input" rows="4" placeholder="Text or Base64 string..."></textarea>
+                <div class="btn-group">
+                    <button id="btn-encode-b64">Encode</button>
+                    <button id="btn-decode-b64" class="btn-secondary">Decode</button>
+                </div>
+                <div class="output-wrapper">
+                    <div id="b64-output" class="result-box" role="status" style="display: flex; align-items: center;"></div>
+                    <button class="btn-icon copy-btn" data-target="b64-output" aria-label="Copy Base64">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </section>
+
+            <!-- JWT Decoder -->
+            <section class="tool-card" aria-labelledby="jwt-title">
+                <h2 id="jwt-title">JWT Decoder</h2>
+                <label for="jwt-input">JWT Token</label>
+                <textarea id="jwt-input" rows="3" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."></textarea>
+                <button id="btn-decode-jwt" style="margin-bottom: 1rem;">Decode Payload</button>
+                <p id="jwt-error" class="error-text" aria-live="polite"></p>
+                <div class="output-wrapper">
+                    <pre id="jwt-output" class="result-box"></pre>
+                    <button class="btn-icon copy-btn" data-target="jwt-output" aria-label="Copy payload">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <div id="cookie-banner" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="cookie-title">
+        <div class="cookie-content">
+            <h2 id="cookie-title">Cookie Preferences</h2>
+            <p>We use local storage to remember your settings. No tracking or third-party analytics are used.</p>
+            <div class="cookie-actions">
+                <button id="btn-reject" class="btn-secondary">Reject</button>
+                <button id="btn-accept">Accept</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
