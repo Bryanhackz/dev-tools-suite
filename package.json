@@ -1,0 +1,8 @@
+{
+  "name": "dev-tools-suite",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node --test frontend/js/modules/*.test.js"
+  }
+}
